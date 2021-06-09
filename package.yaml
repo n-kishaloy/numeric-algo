@@ -1,10 +1,10 @@
 name:                numeric-algo
 version:             0.1.0.0
 github:              "n-kishaloy/numeric-algo"
-license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2021 Author name here"
+license:             MIT
+author:              Kishaloy Neogi
+maintainer:          nkishaloy@yahoo.com
+copyright:           "2021 Kishaloy Neogi"
 
 extra-source-files:
 - README.md
@@ -23,26 +23,51 @@ dependencies:
 - base >= 4.7 && < 5
 
 library:
+  exposed-modules: 
+  - Numeric.Base
+  - Numeric.Optima
   source-dirs: src
+  dependencies:
+  - text
+  - vector
+  - dense-linear-algebra
+  - statistics
+  - approx
 
 executables:
   numeric-algo-exe:
     main:                Main.hs
     source-dirs:         app
-    ghc-options:
+    ghc-options: 
+    - -O 
+    - -Wall 
+    - -fwarn-tabs
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
     - numeric-algo
+    - text
+    - vector
+    - dense-linear-algebra
+    - statistics
+    - approx
 
 tests:
   numeric-algo-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
+    - -O 
+    - -Wall 
+    - -fwarn-tabs
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
     - numeric-algo
+    - text
+    - vector
+    - dense-linear-algebra
+    - statistics
+    - approx
